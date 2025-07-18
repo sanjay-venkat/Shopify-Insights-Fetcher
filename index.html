@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Insights Fetcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        input[type="url"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            text-align: left;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        #error-message {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopify Insights Fetcher</h1>
+        <input type="url" id="websiteUrl" placeholder="Enter Shopify Website URL: https://example.myshopify.com" value="https://hairoriginals.com">
+        <button onclick="getInsights()">Get Insights</button>
+        
+        <div id="error-message" class="error"></div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        async function getInsights() {
+            const websiteUrlInput = document.getElementById('websiteUrl');
+            const resultsDiv = document.getElementById('results');
+            const errorMessageDiv = document.getElementById('error-message');
+            const url = websiteUrlInput.value;
+
+            resultsDiv.textContent = 'Fetching insights...';
+            errorMessageDiv.style.display = 'none';
+
+            if (!url) {
+                errorMessageDiv.textContent = 'Please enter a URL.';
+                errorMessageDiv.style.display = 'block';
+                resultsDiv.textContent = '';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/shopify-insights', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ website_url: url })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || `HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                resultsDiv.textContent = JSON.stringify(data, null, 2);
+                resultsDiv.scrollTop = resultsDiv.scrollHeight;
+                errorMessageDiv.style.display = 'none';
+
+            } catch (error) {
+                console.error('An error occurred:', error);
+                errorMessageDiv.textContent = `An error occurred: ${error.message}`;
+                errorMessageDiv.style.display = 'block';
+                resultsDiv.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

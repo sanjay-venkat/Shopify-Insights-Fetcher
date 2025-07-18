@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+requests
+beautifulsoup4
+llama-cpp-python
+huggingface_hub
+pydantic>=2.0
