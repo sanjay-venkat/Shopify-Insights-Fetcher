@@ -26,17 +26,17 @@ The application successfully fetches and processes the following mandatory insig
 * **Language & Framework:** Python with FastAPI[cite: 4].
 * **Demoable APIs:** Provided with a simple `index.html` UI for easy demonstration[cite: 6].
 * **Backend Focus:** Designed with an emphasis on backend logic, data extraction, and LLM integration[cite: 7].
-* **Best Practices:** Adheres to principles of clean code, modular structure (using Pydantic models), and RESTful API design. [cite_start]Edge-case handling for network errors and invalid URLs is implemented[cite: 8, 9].
-* [cite_start]**Pydantic Models:** Extensively uses Pydantic for robust data validation and clear API response structuring[cite: 9].
-* [cite_start]**Code Readability & Structure:** Code is organized into `main.py`, `models.py`, and `llm_utils.py` for logical separation[cite: 9].
+* **Best Practices:** Adheres to principles of clean code, modular structure (using Pydantic models), and RESTful API design. Edge-case handling for network errors and invalid URLs is implemented[cite: 8, 9].
+* **Pydantic Models:** Extensively uses Pydantic for robust data validation and clear API response structuring[cite: 9].
+* **Code Readability & Structure:** Code is organized into `main.py`, `models.py`, and `llm_utils.py` for logical separation[cite: 9].
 
 ## How It Works
 
 1.  **URL Input:** The user provides a Shopify store URL via a simple HTML interface.
 2.  **HTML Fetching:** The backend uses `requests` and `BeautifulSoup` to fetch and parse the store's HTML content.
-3.  [cite_start]**Product Catalog:** It makes a direct API call to the store's `/products.json` endpoint to get the comprehensive product list[cite: 40].
+3.  **Product Catalog:** It makes a direct API call to the store's `/products.json` endpoint to get the comprehensive product list[cite: 40].
 4.  **Static Data Extraction:** Common elements like hero products, social links, and contact details are extracted using `BeautifulSoup` and regular expressions.
-5.  [cite_start]**LLM-Powered Extraction:** For unstructured or semi-structured data (like policies, FAQs, and general brand context), a locally hosted TinyLlama model (via `llama-cpp-python`) is employed[cite: 43]. The model is prompted to extract and format this information into a structured JSON.
+5.  **LLM-Powered Extraction:** For unstructured or semi-structured data (like policies, FAQs, and general brand context), a locally hosted TinyLlama model (via `llama-cpp-python`) is employed[cite: 43]. The model is prompted to extract and format this information into a structured JSON.
     * **Automatic Model Download:** The TinyLlama model (`tinyllama-1.1b-chat-v0.3.Q4_K_M.gguf`) is automatically downloaded from Hugging Face Hub (`TheBloke/TinyLlama-1.1B-Chat-v0.3-GGUF`) into the `models/` directory upon the first run if not already present.
 6.  **JSON Output & Persistence:** All extracted insights are compiled into a `BrandContext` Pydantic model. This JSON response is sent back to the frontend and also saved as a `.json` file within the `shopify_insights_output/` directory in the project root for local persistence.
 
