@@ -3,29 +3,29 @@
 
 ## Project Overview
 
-This project implements a Python application using the FastAPI framework to extract comprehensive insights from any given Shopify e-commerce store URL. [cite_start]Developed as part of a GenAI Developer Intern Assignment[cite: 1], it focuses on building a robust, maintainable, and scalable backend system capable of fetching various data points, including product catalogs, brand policies, social media presence, and general brand context.
+This project implements a Python application using the FastAPI framework to extract comprehensive insights from any given Shopify e-commerce store URL. Developed as part of a GenAI Developer Intern Assignment, it focuses on building a robust, maintainable, and scalable backend system capable of fetching various data points, including product catalogs, brand policies, social media presence, and general brand context.
 
-[cite_start]A key aspect of this solution is the integration of a local Large Language Model (LLM) – specifically, TinyLlama – to intelligently structure and extract information from less organized web content, such as FAQs and descriptive brand text[cite: 43].
+A key aspect of this solution is the integration of a local Large Language Model (LLM) – specifically, TinyLlama – to intelligently structure and extract information from less organized web content, such as FAQs and descriptive brand text[cite: 43].
 
 ## Features
 
-[cite_start]The application successfully fetches and processes the following mandatory insights/datapoints from Shopify stores[cite: 21]:
+The application successfully fetches and processes the following mandatory insights/datapoints from Shopify stores:
 
-1.  [cite_start]**Whole Product Catalog:** Retrieves a comprehensive list of products available in the store by leveraging the `/products.json` endpoint[cite: 22, 40]. Each product includes details like title, price, image, and description.
-2.  [cite_start]**Hero Products:** Identifies and extracts information about prominent or featured products displayed directly on the store's homepage[cite: 23].
-3.  [cite_start]**Privacy Policy:** Extracts the full text content of the store's Privacy Policy[cite: 24].
-4.  [cite_start]**Return & Refund Policies:** Extracts the full text content of the store's Return and Refund Policies[cite: 25].
-5.  [cite_start]**Brand FAQs:** Uses an LLM to identify and list Frequently Asked Questions (FAQs) along with their corresponding answers, even from unstructured text[cite: 26, 43].
-6.  [cite_start]**Social Handles:** Scans the website for links to various social media platforms (e.g., Instagram, Facebook, Tiktok (Outside India brands), Twitter/X, YouTube, LinkedIn), providing their URLs[cite: 28].
-7.  [cite_start]**Contact Details:** Extracts available contact information such as email address(es) and phone number(s) found on the website[cite: 29].
-8.  [cite_start]**Brand Text Context:** Leverages an LLM to extract "About Us" or general descriptive text about the brand from the website[cite: 30, 43].
-9.  [cite_start]**Important Links:** Identifies and provides URLs for key pages like Order Tracking, Contact Us, and Blog sections[cite: 31].
+1.  **Whole Product Catalog:** Retrieves a comprehensive list of products available in the store by leveraging the `/products.json` endpoint[cite: 22, 40]. Each product includes details like title, price, image, and description.
+2.  **Hero Products:** Identifies and extracts information about prominent or featured products displayed directly on the store's homepage[cite: 23].
+3.  **Privacy Policy:** Extracts the full text content of the store's Privacy Policy[cite: 24].
+4.  **Return & Refund Policies:** Extracts the full text content of the store's Return and Refund Policies[cite: 25].
+5.  **Brand FAQs:** Uses an LLM to identify and list Frequently Asked Questions (FAQs) along with their corresponding answers, even from unstructured text[cite: 26, 43].
+6.  **Social Handles:** Scans the website for links to various social media platforms (e.g., Instagram, Facebook, Tiktok (Outside India brands), Twitter/X, YouTube, LinkedIn), providing their URLs[cite: 28].
+7.  **Contact Details:** Extracts available contact information such as email address(es) and phone number(s) found on the website[cite: 29].
+8.  **Brand Text Context:** Leverages an LLM to extract "About Us" or general descriptive text about the brand from the website[cite: 30, 43].
+9.  **Important Links:** Identifies and provides URLs for key pages like Order Tracking, Contact Us, and Blog sections[cite: 31].
 
 ### Project Adherence to Guidelines
 
-* [cite_start]**Language & Framework:** Python with FastAPI[cite: 4].
-* [cite_start]**Demoable APIs:** Provided with a simple `index.html` UI for easy demonstration[cite: 6].
-* [cite_start]**Backend Focus:** Designed with an emphasis on backend logic, data extraction, and LLM integration[cite: 7].
+* **Language & Framework:** Python with FastAPI[cite: 4].
+* **Demoable APIs:** Provided with a simple `index.html` UI for easy demonstration[cite: 6].
+* **Backend Focus:** Designed with an emphasis on backend logic, data extraction, and LLM integration[cite: 7].
 * **Best Practices:** Adheres to principles of clean code, modular structure (using Pydantic models), and RESTful API design. [cite_start]Edge-case handling for network errors and invalid URLs is implemented[cite: 8, 9].
 * [cite_start]**Pydantic Models:** Extensively uses Pydantic for robust data validation and clear API response structuring[cite: 9].
 * [cite_start]**Code Readability & Structure:** Code is organized into `main.py`, `models.py`, and `llm_utils.py` for logical separation[cite: 9].
@@ -239,3 +239,4 @@ This project is open-sourced under the MIT License. See the `LICENSE` file for m
 
 ```
 ```
+just remove all the cites start alone dont change anything else
