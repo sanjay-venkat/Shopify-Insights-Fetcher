@@ -96,7 +96,7 @@ Follow these steps to set up and run the Shopify Insights Fetcher locally.
 
 ## API Endpoint Reference
 
-[cite_start]The core functionality is exposed via a single POST endpoint[cite: 33].
+The core functionality is exposed via a single POST endpoint.
 
 ### `POST /shopify-insights`
 
@@ -235,7 +235,3 @@ Sanjay Venkat S
 ## License
 
 This project is open-sourced under the MIT License. See the `LICENSE` file for more details.
-
-```
-```
-just remove all the cites start alone dont change anything else
