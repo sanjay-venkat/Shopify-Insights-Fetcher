@@ -53,9 +53,8 @@ Follow these steps to set up and run the Shopify Insights Fetcher locally.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/your-username/Shopify-Insights-Fetcher.git](https://github.com/your-username/Shopify-Insights-Fetcher.git)
+    git clone [https://github.com/sanjay-venkat/Shopify-Insights-Fetcher.git](https://github.com/your-username/Shopify-Insights-Fetcher.git)
     cd Shopify-Insights-Fetcher
-    # Replace 'your-username' with your actual GitHub username
     ```
 
 2.  **Create and Activate a Virtual Environment:**
