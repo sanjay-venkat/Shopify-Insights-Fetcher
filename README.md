@@ -1,6 +1,5 @@
-### **Shopify Insights Fetcher**
+# Shopify Insights Fetcher
 
-markdown
 
 ## Project Overview
 
