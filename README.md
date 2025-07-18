@@ -1,4 +1,4 @@
-Here is your complete `README.md` content, fully refined and ready to paste directly into your GitHub repo:
+
 
 ---
 
@@ -223,4 +223,4 @@ curl -X POST "http://127.0.0.1:8000/shopify-insights" \
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
+---
